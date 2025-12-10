@@ -172,5 +172,3 @@ For issues or questions, please open an issue on the GitHub repository.
 
 ---
 
-**Made with ❤️ for e-commerce enthusiasts**
-
