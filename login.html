@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #f6d365, #fda085);
+    }
+    .container {
+      background-color: #fff;
+      padding: 40px 50px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .input-group {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      transition: 0.3s;
+    }
+    .input-group input:focus {
+      border-color: #fda085;
+      box-shadow: 0 0 5px rgba(253,160,133,0.5);
+    }
+    .show-password {
+      position: absolute;
+      top: 38px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      color: #fda085;
+      user-select: none;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #fda085;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f79470;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #555;
+    }
+    .footer a {
+      color: #fda085;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <div id="alertBox" style="display: none; padding: 10px; margin-bottom: 20px; border-radius: 6px; text-align: center;"></div>
+    <form id="loginForm">
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+        <span class="show-password" onclick="togglePassword()">Show</span>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <div class="footer">
+      Don't have an account? <a href="signup.html">Sign Up</a> <br>
+      <a href="./forget-password.html">Forgot Password?</a>
+    </div>
+  </div>
+
+  <script>
+    function togglePassword() {
+      const password = document.getElementById('password');
+      const toggle = document.querySelector('.show-password');
+      if(password.type === 'password') {
+        password.type = 'text';
+        toggle.textContent = 'Hide';
+      } else {
+        password.type = 'password';
+        toggle.textContent = 'Show';
+      }
+    }
+
+    function showAlert(message, type) {
+      const alertBox = document.getElementById('alertBox');
+      alertBox.textContent = message;
+      alertBox.style.display = 'block';
+      alertBox.style.backgroundColor = type === 'success' ? '#d4edda' : '#f8d7da';
+      alertBox.style.color = type === 'success' ? '#155724' : '#721c24';
+      alertBox.style.border = `1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'}`;
+    }
+
+    // Form submission handler
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alertBox = document.getElementById('alertBox');
+      alertBox.style.display = 'none';
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      if (!email || !password) {
+        showAlert('Email and password are required.', 'error');
+        return;
+      }
+
+      // Check user from localStorage (frontend-only approach)
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        // Store current user in localStorage
+        localStorage.setItem('currentUser', JSON.stringify({ 
+          id: user.id, 
+          name: user.name, 
+          email: user.email 
+        }));
+        
+        showAlert('Login successful! Redirecting...', 'success');
+        setTimeout(() => {
+          window.location.href = './index.html';
+        }, 1500);
+      } else {
+        showAlert('Invalid email or password. Please check your credentials or sign up first.', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

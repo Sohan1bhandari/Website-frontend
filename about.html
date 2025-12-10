@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+    .logo {
+    height: 25px;
+}
+
+
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* About Section */
+    .about {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #9b59b6;
+    }
+
+    .about p {
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    /* Team Section */
+    .team {
+      background: #fff;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .team h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+      color: #9b59b6;
+    }
+
+    .team-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .team-member {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .team-member img {
+      width: 100%;
+      border-radius: 10%;
+      margin-bottom: 15px;
+    }
+
+    .team-member h3 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .team-member p {
+      font-size: 15px;
+      color: #777;
+    }
+
+    /* Footer */
+    .footer {
+      background: #9b59b6;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    #header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    background: #E3E6F3;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+
+#navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#navbar #close {
+    display: none;
+    justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+
+}
+
+
+button.normal {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 30px;
+    color: black;
+    background-color: #cdd4f8;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: 0.2s;
+
+}
+
+button.white {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 11px 18px;
+    color: rgb(244, 243, 243);
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid white;
+    outline: none;
+    transition: 0.2s;
+
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    transition: 0, 3s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: #088178;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: #6630b1;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+
+}
+#mobile {
+    display: none;
+    align-items: center;
+}
+
+  </style>
+</head>
+<body>
+
+     <section id="header">
+        <a href="#"><img src="image/logo.png" class="logo"></a>
+
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">shop</a></li>
+                <!-- <li><a href="blog.html">Blog</a></li> -->
+                <li><a class="active" href="about.html">About</a></li>
+                <!-- <li><a href="contact.html">Contact</a></li> -->
+                <li id="lg-bag"><a href="cart.html"><img src="image/shopping-cart.png" alt="" class="logo"></a></li>
+                <a href="#" id="close"><img src="back.png" class="logo" alt=""></a>
+            </ul>
+        </div>
+        <div id = "mobile">
+            <a href="cart.html"><img src="image/shopping-cart.png" alt="" class="logo"></a>
+            <img src="image/menu.png" class="mobile_image" alt="" id="bar">
+
+        </div>
+    </section>
+
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>About Us</h1>
+    <p>We are passionate about delivering quality products and creating an unforgettable shopping experience for our customers.</p>
+  </div>
+
+  <!-- About Section -->
+  <section class="about">
+    <h2>Our Story</h2>
+    <p>Founded in 2025, our ecommerce platform started with a simple vision: to bring stylish and affordable products to everyone. We believe in blending innovation with creativity, offering items that our customers truly love.</p>
+    <p>Our mission is to make online shopping easy, enjoyable, and trustworthy. With customer satisfaction at the heart of everything we do, we continue to grow and improve every day.</p>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="image/IMG_0293.png" alt="Team Member">
+        <h3>Sohan Singh Bhandari</h3>
+        <p>Founder & CEO</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 YourStore. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
